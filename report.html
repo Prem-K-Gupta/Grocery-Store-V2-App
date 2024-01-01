@@ -1,0 +1,46 @@
+
+const AdminApp = Vue.component('AdminApp', {
+    template: `
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">CSV Viewer</h2>
+    
+        <div class="text-center">
+          <button class="btn btn-primary" @click="viewCSV">View CSV</button>
+          <button class="btn btn-success" @click="downloadCSV">Download CSV</button>
+        </div>
+    
+        <div class="mt-4" v-if="csvTableVisible">
+          <h4 class="text-center">CSV Content</h4>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th v-for="header in csvHeaders" :key="header">{{ header }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="row in csvData" :key="row.join(',')">
+                <td v-for="column in row">{{ column }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    `,
+    data() {
+      return {
+        csvTableVisible: false,
+        csvHeaders: [], // Replace with your actual data
+        csvData: [], // Replace with your actual data
+      };
+    },
+    methods: {
+      viewCSV() {
+        // Implement your viewCSV logic here
+      },
+      downloadCSV() {
+        // Implement your downloadCSV logic here
+      },
+    },
+  };
+  });
+
+export default AdminApp; 
